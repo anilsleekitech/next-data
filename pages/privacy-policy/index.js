@@ -1,6 +1,5 @@
 import React from "react";
 import { getImagePath } from "../../utils/imageUtils";
-import SEO from "../../components/SEO";
 import Head from "next/head";
 
 export default function PrivacyPolicy() {
@@ -33,7 +32,7 @@ export default function PrivacyPolicy() {
         />
         <meta
           property="og:image"
-          content="https://devnagri.com/assets/images/privacy-policy.png"
+          content="https://devnagri.com/assets/images/career-images/team-1.jpg"
         />
         <meta property="og:url" content="https://devnagri.com/privacy-policy" />
         <meta property="og:type" content="website" />
@@ -49,7 +48,7 @@ export default function PrivacyPolicy() {
         />
         <meta
           name="twitter:image"
-          content="https://devnagri.com/assets/images/privacy-policy.png"
+          content="https://devnagri.com/assets/images/career-images/team-1.jpg"
         />
 
         {/* Canonical URL */}

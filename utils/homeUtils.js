@@ -3,56 +3,123 @@ import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 
 // Initialize all sliders
 export const initializeSliders = () => {
+  if (typeof window === 'undefined') return;
+
   // Hero section slider
-  new Swiper('.campaignSwiper', {
-    modules: [Navigation, Pagination, Autoplay],
-    slidesPerView: 1,
-    spaceBetween: 30,
-    loop: true,
-    autoplay: {
-      delay: 3000,
-      disableOnInteraction: false,
-    },
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
-    },
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
-  });
+  const campaignSwiperElement = document.querySelector('.campaignSwiper');
+  if (campaignSwiperElement && !campaignSwiperElement.swiper) {
+    new Swiper(campaignSwiperElement, {
+      modules: [Navigation, Pagination, Autoplay],
+      slidesPerView: 1,
+      spaceBetween: 30,
+      loop: true,
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+  }
+
+  // How we help slider
+  const howWeHelpSwiper = document.querySelector('#howwe-help-swiper');
+  if (howWeHelpSwiper && !howWeHelpSwiper.swiper) {
+    new Swiper(howWeHelpSwiper, {
+      modules: [Navigation],
+      slidesPerView: 1,
+      spaceBetween: 30,
+      loop: true,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      breakpoints: {
+        640: {
+          slidesPerView: 2,
+        },
+        768: {
+          slidesPerView: 3,
+        },
+        1024: {
+          slidesPerView: 4,
+        },
+      },
+    });
+  }
 
   // Industries slider
-  new Swiper('.industrySwiper', {
-    modules: [Navigation, Pagination, Autoplay],
-    slidesPerView: 1,
-    spaceBetween: 30,
-    loop: true,
-    autoplay: {
-      delay: 3000,
-      disableOnInteraction: false,
-    },
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
-    },
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
-    breakpoints: {
-      640: {
-        slidesPerView: 2,
+  const industrySwiperElement = document.querySelector('.industrySwiper');
+  if (industrySwiperElement && !industrySwiperElement.swiper) {
+    new Swiper(industrySwiperElement, {
+      modules: [Navigation, Pagination, Autoplay],
+      slidesPerView: 1,
+      spaceBetween: 30,
+      loop: true,
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
       },
-      768: {
-        slidesPerView: 3,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
       },
-      1024: {
-        slidesPerView: 4,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
       },
-    },
-  });
+      breakpoints: {
+        640: {
+          slidesPerView: 2,
+        },
+        768: {
+          slidesPerView: 3,
+        },
+        1024: {
+          slidesPerView: 4,
+        },
+      },
+    });
+  }
+
+
+
+  // Testimonial slider (converted from Slick to Swiper)
+  const testimonialSwiperElement = document.querySelector('.testimonial-slider1');
+  if (testimonialSwiperElement && !testimonialSwiperElement.swiper) {
+    new Swiper(testimonialSwiperElement, {
+      modules: [Pagination, Navigation, Autoplay],
+      slidesPerView: 2,
+      spaceBetween: 30,
+      loop: true,
+      autoplay: {
+        delay: 2000,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      breakpoints: {
+        768: {
+          slidesPerView: 1,
+        },
+        1024: {
+          slidesPerView: 2,
+        },
+      },
+    });
+  }
 };
 
 // Initialize counters
@@ -136,4 +203,9 @@ export const initializeFAQs = () => {
       }
     });
   });
-}; 
+};
+
+export const reinitializeSliders = () => {
+  // Re-initialize sliders for route changes
+  initializeSliders();
+};

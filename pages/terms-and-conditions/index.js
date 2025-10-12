@@ -1,12 +1,11 @@
 import React from 'react'
 import { getImagePath } from '../../utils/imageUtils';
 import Link from 'next/link';
-import SEO from '../../components/SEO';
 import Head from 'next/head';
 
 
 export default function TermsandConditions() {
-  const ogImage = "/assets/images/terms-and-conditions.png";
+  const ogImage = "/assets/images/career-images/team-1.jpg";
   return (
     <div>
       <>

@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import Link from "next/link";
 import { getImagePath } from "../../utils/imageUtils";
-import SEO from "../../components/SEO";
 import Head from "next/head";
 
 const Contact = () => {

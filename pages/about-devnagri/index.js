@@ -1,18 +1,16 @@
 import React, { useEffect } from "react";
 import Link from "next/link";
-import { useRouter } from "next/router";
-// import { getImagePath } from "../../utils/imageUtils";
 import { getImagePath } from "../../utils/imageUtils";
-import { initializeSliders } from "../../utils/initializeAnimations";
 import { initializeSliders as initializeSlickSliders } from "../../utils/initScripts";
 import Head from "next/head";
+import BrandsSection from "@/components/BrandsSection";
+import OurTeamSection from "@/components/OurTeamSection";
 
 const About = () => {
-  const router = useRouter();
 
   useEffect(() => {
     if (typeof window === "undefined") return;
-    initializeSliders();
+    // initializeSliders();
     initializeSlickSliders();
   }, []);
 
@@ -154,13 +152,15 @@ const About = () => {
         <meta name="google-site-verification" content="P0GXIC42VCPtzhJ0U1AMg6_AV8z5s3IYdZ0-nzjtsH4" />
         <meta property="og:title" content="About - Devnagri" />
         <meta property="og:description" content="Learn about Devnagri, India's leading AI-powered translation platform, and our mission to break language barriers for businesses." />
-        <meta property="og:image" content="/assets/images/aboutus-image/Our-Story.jpg" />
+        <meta property="og:image" content="https://devnagri.com/assets/images/aboutus-image/Our-Story.jpg" />
         <meta property="og:url" content="https://devnagri.com/about-devnagri" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="About - Devnagri" />
         <meta name="twitter:description" content="Learn about Devnagri, India's leading AI-powered translation platform, and our mission to break language barriers for businesses." />
-        <meta name="twitter:image" content="/assets/images/aboutus-image/Our-Story.jpg" />
+        <meta name="twitter:image" content="https://devnagri.com/assets/images/aboutus-image/Our-Story.jpg" />
         <meta name="twitter:site" content="@DevnagriAI" />
+         {/* Canonical URL */}
+         <link rel="canonical" href="https://devnagri.com/app-localization" />
       </Head>
       {/* Hero Section */}
       <section
@@ -192,84 +192,7 @@ const About = () => {
         </div>
       </section>
       {/*our major brand*/}
-      <section
-        className="brand-stats-section bg-img mb-5"
-        // style={{ backgroundImage: "none" }}
-      >
-        <div className="container">
-          <div className="">
-            {/* product-brand-slider py-5, classes for white bg */}
-            <div className="brand-slider brand-slider-whitestrip">
-              <div className="brand-slider-wrapper">
-                {/* Add logo images as slides */}
-                <div className="brand-item-slide">
-                  <img
-                    src={getImagePath("brand-meesho.png")}
-                    alt="Brand 1"
-                    loading="lazy"
-                  />
-                </div>
-                <div className="brand-item-slide">
-                  <img
-                    src={getImagePath("brand-icici-bank.png")}
-                    alt="Brand 2"
-                    loading="lazy"
-                  />
-                </div>
-                <div className="brand-item-slide">
-                  <img
-                    src={getImagePath("brand-idfc.png")}
-                    alt="Brand 3"
-                    loading="lazy"
-                  />
-                </div>
-                <div className="brand-item-slide">
-                  <img
-                    src={getImagePath("brand-yes-bank.png")}
-                    alt="Brand 4"
-                    loading="lazy"
-                  />
-                </div>
-                <div className="brand-item-slide">
-                  <img
-                    src={getImagePath("brand-sbi-mutual.png")}
-                    alt="Brand 5"
-                    loading="lazy"
-                  />
-                </div>
-                <div className="brand-item-slide">
-                  <img
-                    src={getImagePath("brand-tataia.png")}
-                    alt="Brand 6"
-                    loading="lazy"
-                  />
-                </div>
-                <div className="brand-item-slide">
-                  <img
-                    src={getImagePath("brand-nestle.png")}
-                    alt="Brand 7"
-                    loading="lazy"
-                  />
-                </div>
-                <div className="brand-item-slide">
-                  <img
-                    src={getImagePath("brand-my-gov.png")}
-                    alt="Brand 8"
-                    loading="lazy"
-                  />
-                </div>
-                <div className="brand-item-slide">
-                  <img
-                    src={getImagePath("brand-nitiayog.png")}
-                    alt="Brand 9"
-                    loading="lazy"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+     <BrandsSection />
       {/*Our Story*/}
       <section
         className="our-story py-5 position-relative bg-img"
@@ -508,152 +431,7 @@ const About = () => {
         </div>
       </section>
       {/*our team*/}
-      <section
-        className="our-team py-5 bg-img"
-        style={{ backgroundImage: `url(${getImagePath("testimonil-bg.png")})` }}
-      >
-        <div className="container">
-          <div className=" row justify-content-center">
-            <div className="col-md-8">
-              <h2 className="f-40 f-600 black text-center pb-2 wow fadeInUp">
-                Our <span className="blue">Team</span>
-              </h2>
-              <p className="f-400 para-color m-0 pb-4 text-center wow fadeInUp">
-                We are a diverse group of AI engineers, product designers,
-                linguists, and strategists who all work together to make
-                communication possible in every language.
-              </p>
-            </div>
-          </div>
-          <div className="team-slider position-relative wow fadeInUp">
-            {/* Team Member 1 */}
-            <div key="arpit-sharma">
-              <div className="team-card rounded-4">
-                <div className="team-card-img">
-                  <img
-                    src={getImagePath("aboutus-image/arpit.jpg")}
-                    alt="team"
-                    className="w-100 rounded-4"
-                  />
-                </div>
-                <div className="team-card-detils">
-                  <div className="team-car-detils-left">
-                    <h6 className="f-18 f-600 black m-0">Arpit Sharma</h6>
-                    <p className="m-0 para-color f-400">
-                      SVP- Customer Acquisition
-                    </p>
-                  </div>
-                  <div className="team-car-detils-right">
-                    <span className="follow-icon">
-                      <Link href="https://www.linkedin.com/in/arpit-sharma-51884b50/" target="_blank" rel="noopener noreferrer">
-                        <i className="bi bi-linkedin" />
-                      </Link>
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div key="manmeet-kaur">
-              <div className="team-card rounded-4">
-                <div className="team-card-img">
-                  <img
-                    src={getImagePath("aboutus-image/manmeet-kaur.jpg")}
-                    alt="team"
-                    className="w-100 rounded-4"
-                  />
-                </div>
-                <div className="team-card-detils">
-                  <div className="team-car-detils-left">
-                    <h6 className="f-18 f-600 black m-0">Manmeet Kaur</h6>
-                    <p className="m-0 para-color f-400">
-                      SVP – Customer Success
-                    </p>
-                  </div>
-                  <div className="team-car-detils-right">
-                    <span className="follow-icon">
-                      <Link href="https://www.linkedin.com/in/manmeetka/" target="_blank" rel="noopener noreferrer">
-                        <i className="bi bi-linkedin" />
-                      </Link>
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div key="michael-singh">
-              <div className="team-card rounded-4">
-                <div className="team-card-img">
-                  <img
-                    src={getImagePath("aboutus-image/Michael-Singh.jpg")}
-                    alt="team"
-                    className="w-100 rounded-4"
-                  />
-                </div>
-                <div className="team-card-detils">
-                  <div className="team-car-detils-left">
-                    <h6 className="f-18 f-600 black m-0">Michael Singh</h6>
-                    <p className="m-0 para-color f-400">VP-CRM</p>
-                  </div>
-                  <div className="team-car-detils-right">
-                    <span className="follow-icon">
-                      <Link href="#">
-                        <i className="bi bi-linkedin" />
-                      </Link>
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div key="jaspreet-singh">
-              <div className="team-card rounded-4">
-                <div className="team-card-img">
-                  <img
-                    src={getImagePath("aboutus-image/jaspreet-oberoi.jpg")}
-                    alt="team"
-                    className="w-100 rounded-4"
-                  />
-                </div>
-                <div className="team-card-detils">
-                  <div className="team-car-detils-left">
-                    <h6 className="f-18 f-600 black m-0">Jaspreet Singh</h6>
-                    <p className="m-0 para-color f-400">Head of Engineering</p>
-                  </div>
-                  <div className="team-car-detils-right">
-                    <span className="follow-icon">
-                      <Link href="https://www.linkedin.com/in/jasoberoi/" target="_blank" rel="noopener noreferrer">
-                        <i className="bi bi-linkedin" />
-                      </Link>
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div key="shima-kundra">
-              <div className="team-card rounded-4">
-                <div className="team-card-img">
-                  <img
-                    src={getImagePath("aboutus-image/shima-m-kundra.png")}
-                    alt="team"
-                    className="w-100 rounded-4"
-                  />
-                </div>
-                <div className="team-card-detils">
-                  <div className="team-car-detils-left">
-                    <h6 className="f-18 f-600 black m-0">Shima M Kundra</h6>
-                    <p className="m-0 para-color f-400">HR Head</p>
-                  </div>
-                  <div className="team-car-detils-right">
-                    <span className="follow-icon">
-                      <Link href="https://www.linkedin.com/in/shima-m-kundra-a113961aa/" target="_blank" rel="noopener noreferrer">
-                        <i className="bi bi-linkedin" />
-                      </Link>
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <OurTeamSection />
       {/*get started section*/}
       <section className="get-strated bg-img">
         <div className="container">

@@ -4,3 +4,145 @@ dist/*
 dist
 .next/*
 .next
+
+
+ssh-keygen -t rsa -b 4096 -C "anil@sleekitech.com"
+
+
+ssh himalayn-community@34.100.147.33
+
+rsync -avz -e "ssh" \
+  --exclude 'node_modules' \
+  --exclude '.git' \
+  --exclude '.gitignore' \
+  /home/himalayn-community/Documents/GitHub/next-data/ \
+  himalayn-community@34.100.147.33:~/react-next/
+
+
+  scp -r -i "/home/himalayn-community/Documents/GitHub/next-data/" himalayn-community@34.100.147.33:~/react-next/
+
+  old data:-
+
+  ssh -i /home/himalayn-community/.ssh/devnagri digital@34.100.147.33
+
+  rsync -avz -e "ssh -i /home/himalayn-community/.ssh/devnagri" \ --exclude 'node_modules' \ --exclude '.git' \ --exclude '.gitignore' \ /home/himalayn-community/Documents/GitHub/next-data/ \ digital@34.100.147.33:~/devnagri-react//
+
+  ssh -i /home/himalayn-community/.ssh/id_rsa anil@34.100.147.33
+  rsync -avz -e "ssh -i /home/himalayn-community/.ssh/id_rsa" \ --exclude 'node_modules' \ --exclude '.git' \ --exclude '.gitignore' \ /home/himalayn-community/Documents/GitHub/next-data/ \ digital@34.100.147.33:~/react-next/
+
+
+
+mkdir react-next
+cd react-next
+
+git clone "github url here" on react-next
+sudo apt install nginx
+sudo rm -rf /var/www/html/*
+sudo mkdir -p /var/www/html/
+sudo cp -r dist/* /var/www/html/
+
+
+sudo vi /etc/nginx/sites-available/website.devnagri.dev
+
+if already exits then press E for edit and :qa for exit or INSERT while edit press A.
+ for react js :-
+
+
+server {
+    listen 80;
+    server_name website.devnagri.dev;
+
+    root /var/www/html;
+
+    # Serve static assets directly
+    location /assets/ {
+        try_files $uri =404;
+        expires 1y;
+        add_header Cache-Control "public, immutable";
+    }
+
+    location ~* \.(js|css|png|jpg|jpeg|gif|ico|svg)$ {
+        try_files $uri =404;
+        expires 1y;
+        add_header Cache-Control "public, immutable";
+    }
+
+    # Fallback for SPA routes
+    location /{
+        try_files $uri index.html;
+    }
+}
+
+for next js:-
+server {
+    listen 80;
+    server_name website.devnagri.dev;
+}
+
+server {
+    location / {
+        proxy_pass http://localhost:3000;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+}
+sudo nano /etc/nginx/sites-available/website.devnagri.dev
+ln -s /etc/nginx/sites-available/website.devnagri.dev  /etc/nginx/sites-enabled/
+ls /etc/nginx/sites-enabled/
+rm /etc/nginx/sites-enabled/default
+sudo service nginx restart
+
+or
+sudo npm install -g pm2
+
+
+pm2 start npm --name "nextjs-app" -- start
+pm2 save
+pm2 restart
+
+mkdir /var/www/nextjs
+cd /var/www/nextjs
+
+Esc press
+:wq
+Enter press
+sudo nginx -t
+sudo systemctl restart nginx
+sudo tail -n 50 /var/log/nginx/error.logs
+grep mime.types /etc/nginx/nginx.conf
+curl -I http://website.devnagri.dev/devnagri-react/assets/index-BXDHAm7v.css
+curl -I http://website.devnagri.dev/devnagri-react/assets/index-BG9DjS3F.js
+
+
+
+
+anil@dev-website-staging:~$ cd ..
+anil@dev-website-staging:/home$ cd ..
+anil@dev-website-staging:/$ ls
+bin  boot  dev  etc  home  lib  lib64  lost+found  media  mnt  opt  proc  root  run  sbin  snap  srv  sys  tmp  usr  var
+anil@dev-website-staging:/$ cd var/
+anil@dev-website-staging:/var$ ls
+backups  cache  crash  lib  local  lock  log  mail  opt  run  snap  spool  tmp  www
+anil@dev-website-staging:/var$ cd www/
+anil@dev-website-staging:/var/www$ ls
+html
+anil@dev-website-staging:/var/www$ cd html/
+anil@dev-website-staging:/var/www/html$ ls
+BUILD_ID             cache               images-manifest.json             next-server.js.nft.json  prerender-manifest.json       required-server-files.json  server  trace
+build-manifest.json  export-marker.json  next-minimal-server.js.nft.json  package.json             react-loadable-manifest.json  routes-manifest.json        static
+anil@dev-website-staging:/var/www/html$ cd ..
+anil@dev-website-staging:/var/www$ cd ..
+anil@dev-website-staging:/var$ cd ..
+anil@dev-website-staging:/$ ls
+bin  boot  dev  etc  home  lib  lib64  lost+found  media  mnt  opt  proc  root  run  sbin  snap  srv  sys  tmp  usr  var
+anil@dev-website-staging:/$ cd home/
+anil@dev-website-staging:/home$ ls
+amudgal  anil  bk497241  digital  himalayn-community  im  kamaljit  kamaljitsingh  ubuntu
+anil@dev-website-staging:/home$ cd anil/
+anil@dev-website-staging:~$ 

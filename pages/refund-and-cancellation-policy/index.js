@@ -1,6 +1,5 @@
 import React from "react";
 import { getImagePath } from "../../utils/imageUtils";
-import SEO from "../../components/SEO";
 import Head from "next/head";
 
 export default function RefundPolicy() {
@@ -33,7 +32,7 @@ export default function RefundPolicy() {
         />
         <meta
           property="og:image"
-          content="https://devnagri.com/assets/images/refund-and-cancellation-policy.png"
+          content="/assets/images/assets/images/career-images/team-1.jpg"
         />
         <meta
           property="og:url"
@@ -52,7 +51,7 @@ export default function RefundPolicy() {
         />
         <meta
           name="twitter:image"
-          content="https://devnagri.com/assets/images/refund-and-cancellation-policy.png"
+          content="https://devnagri.com/assets/images/career-images/team-1.jpg"
         />
 
         {/* Canonical URL */}

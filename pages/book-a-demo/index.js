@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { getImagePath } from '../../utils/imageUtils';
-import SEO from '../../components/SEO';
 import Head from 'next/head';
 
 const BookDemo = () => {

@@ -404,13 +404,25 @@ const EnglishToLangTranslation = () => {
         <title>{currentMeta.title}</title>
         <meta name="description" content={currentMeta.description} />
         <meta name="keywords" content={currentMeta.keywords} />
+            {/* Google Site Verification */}
+            <meta
+          name="google-site-verification"
+          content="P0GXIC42VCPtzhJ0U1AMg6_AV8z5s3IYdZ0-nzjtsH4"
+        />
         <meta name="google-site-verification" content="P0GXIC42VCPtzhJ0U1AMg6_AV8z5s3IYdZ0-nzjtsH4" />
         <meta property="og:title" content={currentMeta.title} />
         <meta property="og:description" content={currentMeta.description} />
-        <meta property="og:image" content="/assets/images/products-images/Hindi-8.png" />
+        <meta property="og:image" content="https://devnagri.com/assets/images/products-images/Hindi-8.png" />
         <meta property="og:url" content={`https://devnagri.com/english-to-${selectedLanguage}-translation`} />
+        <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@DevnagriAI" />
+        <meta property="twitter:title" content={currentMeta.title} />
+        <meta property="twitter:description" content={currentMeta.description} />
+        <meta name="twitter:image" content="https://devnagri.com/assets/images/products-images/Hindi-8.png" />
+
+         {/* Canonical URL */}
+         <link rel="canonical" href="https://devnagri.com/blogs" />
       </Head>
 
       <div className="translation-page">

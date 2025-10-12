@@ -4,7 +4,6 @@ import { useRouter } from "next/router";
 
 // Import your full dataset (410 items)
 import fullDataset from "../../data/howWeHelpData.json";
-import SEO from "../../components/SEO";
 import Head from "next/head";
 
 // Define content types and categories
@@ -212,7 +211,7 @@ const Resources = () => {
         />
         <meta
           property="og:image"
-          content={`https://devnagri.com${getCurrentPageItems()[0]?.image || "/images/career-images/team-1.jpg"}`}
+          content={`https://devnagri.com${getCurrentPageItems()[0]?.image || "https://devnagri.com/assets/images/images/career-images/team-1.jpg"}`}
         />
         <meta
           property="og:url"
@@ -231,7 +230,7 @@ const Resources = () => {
         />
         <meta
           name="twitter:image"
-          content={`https://devnagri.com${getCurrentPageItems()[0]?.image || "/images/career-images/team-1.jpg"}`}
+          content={`https://devnagri.com${getCurrentPageItems()[0]?.image || "https://devnagri.com/assets/images/career-images/team-1.jpg"}`}
         />
 
         {/* Canonical URL */}
