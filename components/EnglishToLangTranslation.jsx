@@ -416,13 +416,15 @@ const EnglishToLangTranslation = () => {
         <meta property="og:url" content={`https://website.devnagri.dev/english-to-${selectedLanguage}-translation`} />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:domain" content="website.devnagri.dev" />
+        <meta name="twitter:url" content={`https://website.devnagri.dev/english-to-${selectedLanguage}-translation`} />
         <meta name="twitter:site" content="@DevnagriAI" />
         <meta property="twitter:title" content={currentMeta.title} />
         <meta property="twitter:description" content={currentMeta.description} />
         <meta name="twitter:image" content={`https://website.devnagri.dev/assets/images/${languageImageMap[selectedLanguage] || "https://devnagri.com/assets/images/products-images/Hindi-8.png"}`} />
 
          {/* Canonical URL */}
-         <link rel="canonical" href={`https://website.devnagri.dev/english-to-${selectedLanguage}-translation`} />
+         <link rel="canonical" href={`https://website.devnagri.dev/english-to-${selectedLanguage}-${activeTab}`} />
       </Head>
 
       <div className="translation-page">

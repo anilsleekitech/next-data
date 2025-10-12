@@ -1,8 +1,7 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import Link from "next/link";
-import fullDataset from "../data/howWeHelpData.json";
 import { getImagePath } from "../utils/imageUtils";
 import Script from "next/script";
 
@@ -12,15 +11,18 @@ const contentTypes = {
   announcements: { name: "Announcements" },
 };
 
-const ResourcesDetail = () => {
+/**
+ * @typedef {Object} Props
+ * @property {Object} item
+ * @property {Object[]} relatedPosts
+ */
+
+const ResourcesDetail = ({ item, relatedPosts }) => {
   const router = useRouter();
-  const { link } = router.query;
-  const [item, setItem] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
   const [selectedLanguage, setSelectedLanguage] = useState("english");
   const [translatedContent, setTranslatedContent] = useState(null);
   const [isTranslating, setIsTranslating] = useState(false);
-  const [relatedPosts, setRelatedPosts] = useState([]);
+  const[isLoading, setIsLoading] = useState();
 
   // Function to generate Schema.org structured data
   const generateSchema = (item) => {
@@ -55,103 +57,7 @@ const ResourcesDetail = () => {
     };
   };
 
-  useEffect(() => {
-    if (!router.isReady) return;
 
-    setIsLoading(true);
-
-    // Check if the URL matches a translation pattern
-    const translationPattern = /^(.*?)-(to|2)-(.*?)-translation\/?$/i;
-    const match = link?.match(translationPattern);
-
-    if (match) {
-      const [, fromLang, , toLang] = match;
-      // Redirect to the text translation page
-      router.push(`/${fromLang}-to-${toLang}-translation`);
-      setIsLoading(false);
-      return;
-    }
-
-    const findItem = () => {
-      // Clean the incoming link by removing leading/trailing slashes
-      const cleanLink = link?.replace(/^\/+|\/+$/g, "") || "";
-
-      // If no state, try to find item by link
-      const foundItem = fullDataset?.howWeHelpCards?.find((item) => {
-        if (!item) return false;
-
-        // Clean and compare the item's link
-        if (item.link) {
-          const itemLink = item.link.replace(/^\/+|\/+$/g, "");
-          if (itemLink === cleanLink) {
-            return true;
-          }
-        }
-
-        // Try matching by title if link doesn't match
-        const itemTitle = item.title || "";
-        const titleAsLink = itemTitle.toLowerCase().replace(/[^a-z0-9]+/g, "-");
-        const cleanTitleLink = titleAsLink.replace(/^\/+|\/+$/g, "");
-
-        if (cleanTitleLink === cleanLink) {
-          return true;
-        }
-        return false;
-      });
-
-      if (foundItem) {
-        // Check if found item is a translation item
-        if (
-          foundItem.translation === true ||
-          foundItem.type === "translation"
-        ) {
-          const fromLang = foundItem.fromLanguage || "english";
-          let toLang = foundItem.toLanguage;
-
-          // If toLanguage is not specified, try to extract it from the title
-          if (!toLang && foundItem.title) {
-            const titleMatch = foundItem.title
-              .toLowerCase()
-              .match(/english\s+to\s+(\w+)/i);
-            if (titleMatch) {
-              toLang = titleMatch[1];
-            }
-          }
-
-          toLang = toLang || "hindi";
-
-          setIsLoading(false);
-          router.push(`/${fromLang}-to-${toLang}-translation`);
-          return true;
-        }
-        setItem(foundItem);
-        setIsLoading(false);
-        return true;
-      }
-      // If item not found, redirect to 404
-      setIsLoading(false);
-      router.push("/404");
-      return true;
-    };
-
-    try {
-      findItem();
-    } catch (err) {
-      console.error("Error finding item:", err);
-      setIsLoading(false);
-      router.push("/404");
-    }
-  }, [link, router.isReady]);
-
-  useEffect(() => {
-    if (item && fullDataset?.howWeHelpCards) {
-      // Filter related posts based on the current item's type
-      const filtered = fullDataset.howWeHelpCards
-        .filter((post) => post.type === item.type && post.id !== item.id)
-        .slice(0, 3); // Get only 3 related posts
-      setRelatedPosts(filtered);
-    }
-  }, [item]);
 
   const ShareButton = ({ platform, url }) => {
     const shareUrls = {
@@ -229,7 +135,7 @@ const ResourcesDetail = () => {
   ? item.image.startsWith("https")
     ? item.image
     : `https://website.devnagri.dev${item.image}`
-  : "https://website.devnagri.dev/assets/images/blogs-new-images/life-insurance-leaders-translated-over-a-million-words-in-less-than-30-days.png";
+  : "https://storage.googleapis.com/devnagri-website-data/uploads/2025/09/aec39198-life-insurance-leader-translated-over-a-million-words-in-less-than-30-days-with-ai-powered-domain-training.jpg";
 
   return (
     <>
@@ -247,16 +153,21 @@ const ResourcesDetail = () => {
 
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:domain" content="website.devnagri.dev" />
+        <meta name="twitter:url" content={`https://website.devnagri.dev${item.link}`} />
         <meta name="twitter:site" content="@DevnagriAI" />
         <meta name="twitter:title" content={item.title} />
         <meta name="twitter:description" content={item.description} />
-        <meta name="twitter:image" content={imageUrl} /> 
+        <meta name="twitter:image" content={imageUrl} />
 
         {/* Google Site Verification */}
         <meta
           name="google-site-verification"
           content="P0GXIC42VCPtzhJ0U1AMg6_AV8z5s3IYdZ0-nzjtsH4"
         />
+
+        {/* Canonical URL */}
+        <link rel="canonical" href={`https://website.devnagri.dev${item.link}`} />
 
         {/* Schema.org */}
         {schema && (
