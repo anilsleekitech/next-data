@@ -3746,6 +3746,8 @@ textarea {
     transition: .5s ease-in-out;
     margin-right: 15px;
     z-index: 1100;
+    outline: none;
+    border: none !important;
   }
 
   .navbar-toggler:focus {
