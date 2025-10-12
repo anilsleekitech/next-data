@@ -3751,7 +3751,7 @@ textarea {
   }
 
   .navbar-toggler:focus {
-    box-shadow: none;
+    box-shadow: none !important;
   }
 
   .navbar-toggler span {
