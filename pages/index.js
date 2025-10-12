@@ -2419,6 +2419,20 @@ const Home = () => {
           </div>
         </div>
       </section>
+      <section className="pb-5">
+        <div className="container">
+          <div className="row">
+            <div className="col-12 wow fadeInUp">
+              <Link href="/english-to-hindi-translation">
+                <img
+                  src={getImagePath("Home page banner_.png")}
+                  className="w-100 rounded-4"
+                ></img>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
       {/*How we can help*/}
       <section className="py-5 howwe-help">
         <div className="container">

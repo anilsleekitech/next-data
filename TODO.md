@@ -1,0 +1,5 @@
+- [ ] Add onClick to voice-bot link in Products dropdown
+- [ ] Add onClick to OCR link in Products dropdown
+- [ ] Add onClick to english-to-hindi-translation link in Products dropdown
+- [ ] Add onClick to all links in Industries dropdown
+- [ ] Add onClick to all links in Resources dropdown

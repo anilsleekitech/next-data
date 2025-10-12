@@ -172,7 +172,7 @@ ul li {
 a {
   text-decoration: none !important;
   color: var(--text-color);
-  font-family: "Montserrat", sans-serif;
+  font-family: "Montserrat", sans-serif !important;
 }
 
 .width-3 {
@@ -407,7 +407,7 @@ header .dropdown {
   border: none;
   border-radius: 8px;
   box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
-  animation: fadeInUp 0.3s ease;
+  animation: fadeIn 0.3s ease;
 }
 
 .dropdown-item {
@@ -522,7 +522,7 @@ header .dropdown {
 
 .cust-mega-menu-width {
   max-width: 60% !important;
-  margin: -1px auto 0px;
+  margin: -1px auto 0px !important;
 }
 
 /* Hero Section Styles */
@@ -1578,14 +1578,14 @@ header .dropdown {
   right: 0;
   width: 100%;
   max-width: 100%;
-  padding: 30px;
+  padding: 30px!important;
   background: #fff;
-  border-radius: 0 0 12px 12px;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+  border-radius: 0 0 12px 12px!important;
+  box-shadow: 0 4px 24px rgba(0,0,0,.1);
   display: none;
-  z-index: 1000;
+  z-index: 1000!important;
   transform: none;
-  margin-top: -1px;
+  margin-top: -1px!important;
 }
 
 .dropdown:hover .mega-menu {

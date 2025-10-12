@@ -49,9 +49,9 @@ const ResourcesDetail = () => {
       "publisher": {
         "@type": "Organization",
         "name": "Devnagri",
-        "logo": "https://devnagri.com/assets/images/Devnagri-Logo.png",
+        "logo": "https://website.devnagri.dev/assets/images/Devnagri-Logo.png",
       },
-      "url": `https://devnagri.com${item.link}`,
+      "url": `https://website.devnagri.dev${item.link}`,
     };
   };
 
@@ -228,8 +228,8 @@ const ResourcesDetail = () => {
   const imageUrl = item?.image
   ? item.image.startsWith("https")
     ? item.image
-    : `https://devnagri.com${item.image}`
-  : "https://devnagri.com/assets/images/blogs-new-images/life-insurance-leaders-translated-over-a-million-words-in-less-than-30-days.png";
+    : `https://website.devnagri.dev${item.image}`
+  : "https://website.devnagri.dev/assets/images/blogs-new-images/life-insurance-leaders-translated-over-a-million-words-in-less-than-30-days.png";
 
   return (
     <>
@@ -242,7 +242,7 @@ const ResourcesDetail = () => {
         <meta property="og:title" content={item.title} />
         <meta property="og:description" content={item.description} />
         <meta property="og:image" content={imageUrl} />
-        <meta property="og:url" content={`https://devnagri.com${item.link}`} />
+        <meta property="og:url" content={`https://website.devnagri.dev${item.link}`} />
         <meta property="og:type" content="article" />
 
         {/* Twitter */}

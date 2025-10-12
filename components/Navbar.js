@@ -401,7 +401,7 @@ const Navbar = () => {
                               <Link
                                 className="dropdown-item"
                                 href="/translation-api"
-                                onClick={handleMobileMenuClose}
+                                onClick={() => { setIsProductsOpen(false); handleMobileMenuClose(); }}
                               >
                                 <div className="tab_innerimg_icon">
                                   <img
@@ -426,7 +426,7 @@ const Navbar = () => {
                               <Link
                                 className="dropdown-item"
                                 href="/transliteration-api"
-                                onClick={handleMobileMenuClose}
+                                onClick={() => { setIsProductsOpen(false); handleMobileMenuClose(); }}
                               >
                                 <div className="tab_innerimg_icon">
                                   <img
@@ -450,7 +450,7 @@ const Navbar = () => {
                               <Link
                                 className="dropdown-item"
                                 href="/document-translation"
-                                onClick={handleMobileMenuClose}
+                                onClick={() => { setIsProductsOpen(false); handleMobileMenuClose(); }}
                               >
                                 <div className="tab_innerimg_icon">
                                   <img
@@ -479,7 +479,7 @@ const Navbar = () => {
                               <Link
                                 className="dropdown-item"
                                 href="/website-translation"
-                                onClick={handleMobileMenuClose}
+                                onClick={() => { setIsProductsOpen(false); handleMobileMenuClose(); }}
                               >
                                 <div className="tab_innerimg_icon">
                                   <img
@@ -503,7 +503,7 @@ const Navbar = () => {
                               <Link
                                 className="dropdown-item"
                                 href="/app-localization"
-                                onClick={handleMobileMenuClose}
+                                onClick={() => { setIsProductsOpen(false); handleMobileMenuClose(); }}
                               >
                                 <div className="tab_innerimg_icon">
                                   <img
@@ -539,7 +539,7 @@ const Navbar = () => {
                       </div>
                       <ul className="list-unstyled">
                         <li>
-                          <Link className="dropdown-item" href="/chatbot">
+                          <Link className="dropdown-item" href="/chatbot" onClick={() => { setIsProductsOpen(false); handleMobileMenuClose(); }}>
                             <div className="tab_innerimg_icon">
                               <img
                                 src={getImagePath(
@@ -557,7 +557,7 @@ const Navbar = () => {
                           </Link>
                         </li>
                         <li>
-                          <Link className="dropdown-item" href="/voice-bot">
+                          <Link className="dropdown-item" href="/voice-bot" onClick={() => { setIsProductsOpen(false); handleMobileMenuClose(); }}>
                             <div className="tab_innerimg_icon">
                               <img
                                 src={getImagePath(
@@ -580,7 +580,7 @@ const Navbar = () => {
                       <div className="row">
                         <div className="col-md-6">
                           <div className="sub-menu-nested-heading mb-3">
-                            <Link href="/ocr">
+                            <Link href="/ocr" onClick={() => { setIsProductsOpen(false); handleMobileMenuClose(); }}>
                               <h6 className="f-20 f-600 blue m-0">OCR</h6>
                               <p className="f-12 f-400 black m-0">
                                 AI-powered text recognition for accurate
@@ -605,7 +605,7 @@ const Navbar = () => {
                       </div>
                       <div className="row">
                         <div className="col-12">
-                          <Link href="/english-to-hindi-translation">
+                          <Link href="/english-to-hindi-translation" onClick={() => { setIsProductsOpen(false); handleMobileMenuClose(); }}>
                             <img
                               src={getImagePath("Nav-bar_banner.png")}
                               className="w-100 rounded-4"
@@ -657,6 +657,7 @@ const Navbar = () => {
                               <Link
                                 className="dropdown-item"
                                 href="/banking-finance-translation"
+                                onClick={() => { setIsIndustriesOpen(false); handleMobileMenuClose(); }}
                               >
                                 <div className="tab_innerimg_icon">
                                   <img
@@ -679,6 +680,7 @@ const Navbar = () => {
                               <Link
                                 className="dropdown-item"
                                 href="/direct-to-consumer-translation"
+                                onClick={() => { setIsIndustriesOpen(false); handleMobileMenuClose(); }}
                               >
                                 <div className="tab_innerimg_icon">
                                   <img
@@ -702,6 +704,7 @@ const Navbar = () => {
                               <Link
                                 className="dropdown-item"
                                 href="/ecommerce-translation"
+                                onClick={() => { setIsIndustriesOpen(false); handleMobileMenuClose(); }}
                               >
                                 <div className="tab_innerimg_icon">
                                   <img
@@ -725,6 +728,7 @@ const Navbar = () => {
                               <Link
                                 className="dropdown-item"
                                 href="/government-translation"
+                                onClick={() => { setIsIndustriesOpen(false); handleMobileMenuClose(); }}
                               >
                                 <div className="tab_innerimg_icon">
                                   <img
@@ -790,6 +794,7 @@ const Navbar = () => {
                               <Link
                                 className="dropdown-item"
                                 href="https://docs.devnagri.com/"
+                                onClick={() => { setIsResourcesOpen(false); handleMobileMenuClose(); }}
                               >
                                 <div className="tab_innerimg_icon">
                                   <img
@@ -813,6 +818,7 @@ const Navbar = () => {
                               <Link
                                 className="dropdown-item"
                                 href="/blogs?tab=announcements"
+                                onClick={() => { setIsResourcesOpen(false); handleMobileMenuClose(); }}
                               >
                                 <div className="tab_innerimg_icon">
                                   <img
@@ -841,6 +847,7 @@ const Navbar = () => {
                               <Link
                                 className="dropdown-item"
                                 href="/blogs?tab=case-studies"
+                                onClick={() => { setIsResourcesOpen(false); handleMobileMenuClose(); }}
                               >
                                 <div className="tab_innerimg_icon">
                                   <img
@@ -865,6 +872,7 @@ const Navbar = () => {
                               <Link
                                 className="dropdown-item"
                                 href="/blogs?tab=blogs"
+                                onClick={() => { setIsResourcesOpen(false); handleMobileMenuClose(); }}
                               >
                                 <div className="tab_innerimg_icon">
                                   <img
@@ -1028,19 +1036,15 @@ const Navbar = () => {
                         activeSubmenu === "intl" ? "show" : ""
                       } nodtranslate`}
                     >
-                      {Object.entries(internationalLanguages).map(
-                        ([code, lang]) => {
+                      {Object.entries(internationalLanguages).map(([code, lang]) => {
                           const url = getLanguageUrl(code);
                           return (
                             <li key={code}>
                               <Link
                                 href={url}
                                 className="dropdown-item nodtranslate d-flex align-items-center"
-                                onClick={(e) => {
-                                  // Optional: if you still want to handle the language selection logic
+                                onClick={() => {
                                   handleLanguageSelect(code);
-                                  // The page will navigate due to href, but you could prevent default
-                                  // and use window.location if you need more control
                                 }}
                               >
                                 <img

@@ -412,17 +412,17 @@ const EnglishToLangTranslation = () => {
         <meta name="google-site-verification" content="P0GXIC42VCPtzhJ0U1AMg6_AV8z5s3IYdZ0-nzjtsH4" />
         <meta property="og:title" content={currentMeta.title} />
         <meta property="og:description" content={currentMeta.description} />
-        <meta property="og:image" content="https://devnagri.com/assets/images/products-images/Hindi-8.png" />
-        <meta property="og:url" content={`https://devnagri.com/english-to-${selectedLanguage}-translation`} />
+        <meta property="og:image" content={`https://website.devnagri.dev/assets/images/${languageImageMap[selectedLanguage] || "https://devnagri.com/assets/images/products-images/Hindi-8.png"}`} />
+        <meta property="og:url" content={`https://website.devnagri.dev/english-to-${selectedLanguage}-translation`} />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@DevnagriAI" />
         <meta property="twitter:title" content={currentMeta.title} />
         <meta property="twitter:description" content={currentMeta.description} />
-        <meta name="twitter:image" content="https://devnagri.com/assets/images/products-images/Hindi-8.png" />
+        <meta name="twitter:image" content={`https://website.devnagri.dev/assets/images/${languageImageMap[selectedLanguage] || "https://devnagri.com/assets/images/products-images/Hindi-8.png"}`} />
 
          {/* Canonical URL */}
-         <link rel="canonical" href="https://devnagri.com/blogs" />
+         <link rel="canonical" href={`https://website.devnagri.dev/english-to-${selectedLanguage}-translation`} />
       </Head>
 
       <div className="translation-page">
