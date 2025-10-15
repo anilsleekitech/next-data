@@ -254,7 +254,7 @@ const ResourcesDetail = ({ item, relatedPosts }) => {
                   <ShareButton platform="twitter" url={currentUrl} />
                   <ShareButton platform="linkedin" url={currentUrl} />
                 </div>
-                <div className="mt-4 p-4 md:p-6 bg-white">
+                {/* <div className="mt-4 p-4 md:p-6 bg-white">
                   <h3 className="sidebar-title text-lg md:text-xl font-semibold text-blue-600 mb-4">
                     Author Bio
                   </h3>
@@ -297,7 +297,7 @@ const ResourcesDetail = ({ item, relatedPosts }) => {
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> */}
               </article>
             </div>
 
